@@ -1,0 +1,52 @@
+[
+  {
+    "label": "Home",
+    "href": "index.html"
+  },
+  {
+    "label": "About",
+    "href": "about.html"
+  },
+  {
+    "label": "Events",
+    "href": "events.html"
+  },
+  {
+    "label": "Gallery",
+    "href": "gallery.html"
+  },
+  {
+    "label": "Priest Services",
+    "href": "priest-services.html"
+  },
+  {
+    "label": "Seva",
+    "children": [
+      {
+        "label": "Weekend Seva",
+        "href": "weekend-seva.html"
+      },
+      {
+        "label": "Monthly Seva",
+        "href": "monthly-seva.html"
+      },
+      {
+        "label": "Kids Seva",
+        "href": "kids-seva.html"
+      },
+      {
+        "label": "Vidya Gurukulam",
+        "href": "vidya-gurukulam.html"
+      }
+    ]
+  },
+  {
+    "label": "Contact",
+    "href": "contact.html"
+  },
+  {
+    "label": "Donate",
+    "href": "donate.html",
+    "cta": true
+  }
+]

@@ -1,0 +1,54 @@
+---
+layout: base.njk
+title: Gallery
+permalink: gallery.html
+description: Photo albums from festivals and celebrations at Shri Sanatan Mandir, Hutto TX.
+---
+{% import "icons.njk" as icons %}
+
+<section class="page-hero">
+  <div class="container">
+    <span class="hindi" lang="hi">चित्र दीर्घा</span>
+    <h1>Photo Gallery</h1>
+    <p>Celebrations, festivals and everyday moments at the mandir.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {%- set years = albums | galleryYears(external_albums) %}
+    {%- if years.length == 0 %}
+    <p class="center muted">No albums yet — photos from upcoming events will appear here.</p>
+    {%- endif %}
+    {%- for group in years %}
+    <div class="year-heading"><h2>{{ group.year }}</h2></div>
+    <div class="album-grid">
+      {%- for entry in group.items %}
+      {%- if entry.kind == "album" %}
+      {%- set a = entry.item %}
+      <a class="album-tile" href="{{ ('gallery/' + a.slug + '.html') | rel }}">
+        <img src="{{ a.cover | rel }}" alt="" loading="lazy">
+        {%- if a.sample %}<span class="album-tile__badge">Sample album</span>{% endif %}
+        <div class="album-tile__body"><h3>{{ a.title }}</h3><p>{{ a.date | longDate }} · {{ a.count }} photos</p></div>
+      </a>
+      {%- else %}
+      {%- set e = entry.item %}
+      <a class="album-tile" href="{{ e.url }}" target="_blank" rel="noopener">
+        <img src="{{ e.cover | rel }}" alt="" loading="lazy">
+        <span class="album-tile__badge">{{ e.short }} ↗</span>
+        <div class="album-tile__body"><h3>{{ e.title }}</h3><p>{{ e.date | year }} · Professional photos by {{ e.photographer }}</p></div>
+      </a>
+      {%- endif %}
+      {%- endfor %}
+    </div>
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="section section--paper">
+  <div class="container narrow center">
+    <h2>Have photos from a mandir event?</h2>
+    <p>Share them with the mandir team on the WhatsApp group or email <a href="mailto:{{ site.email }}">{{ site.email }}</a> and we'll add them to the gallery.</p>
+    <a class="btn btn--red" href="{{ site.social.whatsapp }}" target="_blank" rel="noopener">{{ icons.icon("whatsapp") }} WhatsApp group</a>
+  </div>
+</section>

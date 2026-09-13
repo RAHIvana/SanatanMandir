@@ -1,0 +1,30 @@
+---
+pagination:
+  data: collections.event
+  size: 1
+  alias: ev
+permalink: "events/{{ ev.fileSlug }}.ics"
+eleventyExcludeFromCollections: true
+layout: false
+---
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Shri Sanatan Mandir//Website//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:{{ ev.fileSlug }}@shrisanatanmandir.org
+DTSTAMP:{{ buildTime | icsStamp }}
+{% if ev.data.allDay -%}
+DTSTART;VALUE=DATE:{{ ev.data.startDate | icsDate }}
+DTEND;VALUE=DATE:{{ ev.data.endDate | icsDate }}
+{%- else -%}
+DTSTART:{{ ev.data.startDate | icsStamp }}
+DTEND:{{ ev.data.endDate | icsStamp }}
+{%- endif %}
+SUMMARY:{{ ev.data.title | icsText }}
+DESCRIPTION:{{ (ev.data.summary or '') | icsText }}\n\n{{ site.url }}{{ ev.url }}
+LOCATION:{{ ev.data.location | icsText }}
+URL:{{ site.url }}{{ ev.url }}
+END:VEVENT
+END:VCALENDAR

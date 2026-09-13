@@ -1,0 +1,92 @@
+---
+layout: base.njk
+title: Donate
+permalink: donate.html
+description: Support Shri Sanatan Mandir, Hutto TX — donate by Zelle, Venmo or card, or help with items on the mandir's wishlist.
+---
+{% import "icons.njk" as icons %}
+
+<section class="page-hero">
+  <div class="container">
+    <span class="hindi" lang="hi">दान</span>
+    <h1>Donate</h1>
+    <p>Your generosity keeps the mandir open for darshan, festivals and seva every day.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Scan to Donate</h2>
+      <div class="ornament">{{ icons.icon("heart") }}</div>
+      <p>Open your bank or Venmo app and scan the code, or use the ID shown below it.</p>
+    </div>
+    <div class="pay-grid">
+      <div class="card pay-tile">
+        <span class="pay-tile__brand pay-tile__brand--zelle">Zelle</span>
+        <img src="{{ site.payments.zelle.qr | rel }}" alt="Zelle QR code for {{ site.name }}">
+        <p class="pay-tile__id">{{ site.payments.zelle.id }}</p>
+        <p class="pay-tile__hint">Zelle is available inside most US banking apps. No fees.</p>
+      </div>
+      <div class="card pay-tile">
+        <span class="pay-tile__brand pay-tile__brand--venmo">Venmo</span>
+        <img src="{{ site.payments.venmo.qr | rel }}" alt="Venmo QR code for {{ site.name }}">
+        <p class="pay-tile__id">{{ site.payments.venmo.id }}</p>
+        <p class="pay-tile__hint">Open Venmo → Scan, or search the handle above.</p>
+      </div>
+    </div>
+    {%- if site.payments.zelle.placeholder or site.payments.venmo.placeholder %}
+    <div class="placeholder narrow" style="margin:24px auto 0">
+      <p>The QR images and IDs above are placeholders. Replace <code>assets/img/zelle-qr-placeholder.png</code> and <code>venmo-qr-placeholder.png</code> with the real codes and update the IDs in <code>src/_data/site.json → payments</code>. (The old website's Zelle QR is saved as <code>assets/img/zelle-qr-from-old-site.png</code> if it is still current.)</p>
+    </div>
+    {%- endif %}
+    {%- if site.payments.square and site.payments.square.url %}
+    <p class="center" style="margin-top:28px">Prefer to pay by card? <a class="btn btn--outline btn--sm" href="{{ site.payments.square.url }}" target="_blank" rel="noopener">{{ site.payments.square.label }}</a></p>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="section section--paper">
+  <div class="container narrow">
+    <div class="section-title">
+      <h2>Mandir Wishlist</h2>
+      <div class="ornament">{{ icons.icon("star") }}</div>
+      <p>Items the mandir needs. If you can sponsor or donate any of them, please contact us.</p>
+    </div>
+    <ul class="wishlist">
+      <li>Item needed — to be provided by the temple</li>
+      <li>Item needed — to be provided by the temple</li>
+      <li>Item needed — to be provided by the temple</li>
+      <li>Item needed — to be provided by the temple</li>
+    </ul>
+    <div class="placeholder" style="margin-top:20px">
+      <p>The wishlist page on the old website was empty. Add real items (with an approximate cost or a store link) in <code>src/donate.njk</code>, or send the list and it will be added.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container narrow">
+    <div class="section-title">
+      <h2>Other Ways to Give</h2>
+      <div class="ornament">{{ icons.icon("heart") }}</div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>In person</h3>
+        <p class="mb-0">Donation boxes are at the mandir during darshan hours. Cheques may be made payable to <b>{{ site.name }}</b>.</p>
+      </div>
+      <div class="card">
+        <h3>Sponsor a puja or festival</h3>
+        <p class="mb-0">Families can sponsor a monthly seva, a festival day, or prasad. See <a href="{{ 'monthly-seva.html' | rel }}">Monthly Seva</a> or call <a href="{{ site.phone | telHref }}">{{ site.phone }}</a>.</p>
+      </div>
+    </div>
+    {%- if site.nonprofit.is501c3 %}
+    <p class="center small muted" style="margin-top:20px">{{ site.name }} is a registered 501(c)(3) non-profit organization{% if site.nonprofit.ein %} (EIN {{ site.nonprofit.ein }}){% endif %}. Donations are tax-deductible to the extent allowed by law.</p>
+    {%- else %}
+    <div class="placeholder" style="margin-top:24px">
+      <p>If the mandir is a registered 501(c)(3), set <code>nonprofit.is501c3</code> to <code>true</code> and add the EIN in <code>src/_data/site.json</code>; a tax-deductibility line will then appear here.</p>
+    </div>
+    {%- endif %}
+  </div>
+</section>

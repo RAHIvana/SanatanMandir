@@ -1,0 +1,89 @@
+---
+layout: base.njk
+title: Events
+permalink: events.html
+description: Upcoming festivals, pujas and programs at Shri Sanatan Mandir, Hutto TX — Navratri, Diwali, Ganesh Chaturthi, Janmashtami and more.
+---
+{% import "icons.njk" as icons %}
+{%- set upcoming = collections.upcomingEvents %}
+{%- set past = collections.pastEvents %}
+{%- set next = upcoming | first %}
+
+<section class="page-hero">
+  <div class="container">
+    <span class="hindi" lang="hi">उत्सव एवं कार्यक्रम</span>
+    <h1>Events &amp; Festivals</h1>
+    <p>Everything happening at the mandir. Tap an event for its full details.</p>
+  </div>
+</section>
+
+{%- if next %}
+<section class="section section--tight">
+  <div class="container">
+    <a class="next-event" href="{{ next.url | rel }}" data-end="{{ next.data.endDate | evIso }}">
+      <div class="next-event__media next-event__media--{{ next.data.picture.fit }}"><img src="{{ next.data.picture.src | rel }}" alt=""></div>
+      <div class="next-event__body">
+        <span class="eyebrow">Next at the mandir</span>
+        <h2>{{ next.data.title }}</h2>
+        <p class="next-event__when">{{ icons.icon("calendar") }} {{ next.data.startDate | evLong }}{% if not next.data.allDay %} · {{ next.data.startDate | evTime }} – {{ next.data.endDate | evTime }}{% endif %}</p>
+        {%- if next.data.summary %}<p class="muted">{{ next.data.summary }}</p>{% endif %}
+        <span class="btn btn--red">Event details</span>
+      </div>
+    </a>
+  </div>
+</section>
+{%- endif %}
+
+<section class="section" style="padding-top:20px">
+  <div class="container">
+    {%- if upcoming.length == 0 %}
+    <p class="events-empty">No upcoming events are posted yet — please check back soon or follow us on Facebook and WhatsApp.</p>
+    {%- endif %}
+    {%- for group in upcoming | byMonth %}
+    <div class="month-heading"><h2>{{ group.label }}</h2></div>
+    <div class="events-grid">
+      {%- for ev in group.items %}{% include "event-tile.njk" %}{% endfor %}
+    </div>
+    {%- endfor %}
+    <p class="events-empty" data-events-none hidden>No more upcoming events right now — please check back soon.</p>
+
+    {%- if past.length %}
+    <details class="past-events">
+      <summary>Past events ({{ past.length }})</summary>
+      <div class="events-grid">
+        {%- for ev in past %}{% include "event-tile.njk" %}{% endfor %}
+      </div>
+    </details>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="section section--paper">
+  <div class="container grid grid-2" style="align-items:start">
+    <div class="card card--red">
+      <h2>Regular Schedule</h2>
+      <ul class="hours-list">
+        {%- for h in site.hours %}
+        <li><b>{{ h.days }}</b><span>{{ h.times }}</span></li>
+        {%- endfor %}
+        <li><b>Evening Aarti</b><span>Daily — time to be confirmed</span></li>
+        <li><b>Hanuman Chalisa</b><span>Saturdays — time to be confirmed</span></li>
+      </ul>
+      <p class="small" style="margin:14px 0 0;color:#f3e3c0">Special timings on festival days are posted as events above.</p>
+    </div>
+    <div>
+      <div class="placeholder">
+        <p><b>Regular schedule still needed from the temple:</b> daily aarti times, weekly programs (Hanuman Chalisa, bhajan/satsang, Sunday puja), and monthly observances (Purnima, Ekadashi, Sankashti). The events shown are samples — see <code>docs/ADDING-EVENTS.md</code> to add real ones.</p>
+      </div>
+      <div class="card" style="margin-top:20px">
+        <h3>Stay informed</h3>
+        <p>Festival announcements also go out on the mandir's WhatsApp group and Facebook page.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn--red btn--sm" href="{{ site.social.whatsapp }}" target="_blank" rel="noopener">{{ icons.icon("whatsapp") }} Join WhatsApp group</a>
+          <a class="btn btn--outline btn--sm" href="{{ site.social.facebook }}" target="_blank" rel="noopener">Facebook</a>
+          <a class="btn btn--outline btn--sm" href="{{ site.social.instagram }}" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

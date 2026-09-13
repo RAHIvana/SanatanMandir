@@ -1,0 +1,24 @@
+{
+  "_comment": "Names copied from the old website (Sept 2026). Add a 'role' to any member once the temple confirms titles; roles show under the name.",
+  "board": [
+    { "name": "Dr. Sagar Pandya", "role": "Board of Directors", "phone": "+1 (682) 333-9416", "photo": "assets/img/priest-sagar-pandya.jpg" }
+  ],
+  "members": [
+    { "name": "Ashlesh Shah" },
+    { "name": "Martin Patel" },
+    { "name": "Vaibhao Astunkar" },
+    { "name": "Ronal Naik" },
+    { "name": "Tenish Sadriwala" },
+    { "name": "Keyur Patel" },
+    { "name": "Jainil Sathvara" },
+    { "name": "Maulin Shah" },
+    { "name": "Paresh Patel" },
+    { "name": "Nitin Singhal" },
+    { "name": "Yash Kanaiya" },
+    { "name": "Ankit Trivedi" },
+    { "name": "Surender Solanki" },
+    { "name": "Ankit Dogra" },
+    { "name": "Ishwar Singh Kuntal" },
+    { "name": "Paras Zaveri" }
+  ]
+}

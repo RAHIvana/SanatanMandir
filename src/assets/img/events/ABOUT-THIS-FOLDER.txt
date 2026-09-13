@@ -1,0 +1,1 @@
+Put event flyers here (JPG/PNG, up to ~1600px wide) and reference them as assets/img/events/<name>.jpg in the event file.

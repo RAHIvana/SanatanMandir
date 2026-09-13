@@ -1,0 +1,34 @@
+---
+layout: base.njk
+pagination:
+  data: albums
+  size: 1
+  alias: album
+permalink: "gallery/{{ album.slug }}.html"
+eleventyComputed:
+  title: "{{ album.title }}"
+  description: "Photos from {{ album.title }} at Shri Sanatan Mandir, Hutto TX."
+---
+{% import "icons.njk" as icons %}
+
+<section class="page-hero">
+  <div class="container">
+    <span class="hindi" lang="hi">चित्र दीर्घा</span>
+    <h1>{{ album.title }}</h1>
+    <p>{{ album.date | longDate }} · {{ album.count }} photos{% if album.sample %} · <span class="badge">Sample album</span>{% endif %}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p style="margin-bottom:22px"><a href="{{ 'gallery.html' | rel }}">← All albums</a></p>
+    {%- if album.description %}<p class="lede" style="max-width:760px">{{ album.description }}</p>{% endif %}
+    <div class="photo-grid">
+      {%- for p in album.photos %}
+      <a href="{{ p.web | rel }}" data-lightbox data-caption="{{ album.title }}">
+        <img src="{{ p.thumb | rel }}" alt="{{ album.title }} — photo {{ loop.index }}" loading="lazy" width="{{ p.width }}" height="{{ p.height }}">
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

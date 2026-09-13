@@ -1,0 +1,80 @@
+{
+  "name": "Shri Sanatan Mandir",
+  "nameHindi": "श्री सनातन मंदिर",
+  "shortName": "Sanatan Mandir",
+  "tagline": "A Hindu temple serving Austin and Central Texas",
+  "description": "Shri Sanatan Mandir (Sanatan Mandir of Austin) in Hutto, Texas — a spiritual and cultural home for the Hindu community: daily darshan, festivals, priest services, seva and Vidya Gurukulam.",
+  "url": "https://shrisanatanmandir.org",
+  "founded": 2023,
+  "motto": {
+    "devanagari": "धर्मो रक्षति रक्षितः",
+    "transliteration": "Dharmo Rakshati Rakshitah",
+    "meaning": "Uphold your Dharma, and Dharma will protect you"
+  },
+  "mission": "To unite all Hindus by establishing a universal worship and to fulfil the religious, cultural, spiritual and social needs of the Hindu community in the Central Texas area.",
+  "vision": "To uplift the Hindu Dharma and inspire the eternal values of Dharma where Hindu religion in all its facets are propagated to old and young in the form of religious principles and values, tolerance, truth, faith, understanding, music, language and spiritual growth.",
+  "welcome": "Our mission is to create a spiritual and cultural sanctuary that embodies the timeless and righteous principles of Sanatan Dharma. Rooted in the rich tapestry of Indian traditions, our temple is a place where these core values come to life, guiding our community towards personal growth, cultural pride, and selfless service. As a non-profit, charitable organization, our goal is to offer religious, medical, educational, and traditional services to the community.",
+  "address": {
+    "line1": "281 Lemens Ave",
+    "city": "Hutto",
+    "state": "TX",
+    "zip": "78634",
+    "oneLine": "281 Lemens Ave, Hutto, TX 78634"
+  },
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Shri+Sanatan+Mandir%2C+281+Lemens+Ave%2C+Hutto%2C+TX+78634",
+  "phone": "+1 (682) 333-9416",
+  "email": "oursanatanmandir@gmail.com",
+  "hours": [
+    {
+      "days": "Monday – Friday",
+      "times": "5:30 – 7:30 pm"
+    },
+    {
+      "days": "Saturday – Sunday",
+      "times": "9:00 am – 12:00 pm  ·  5:30 – 7:30 pm"
+    }
+  ],
+  "social": {
+    "facebook": "https://www.facebook.com/shrisanatanmandir/",
+    "instagram": "https://www.instagram.com/shrisanatanmandir/",
+    "whatsapp": "https://chat.whatsapp.com/HRHISP0vzJF2p8Pinvg2Ov"
+  },
+  "forms": {
+    "_comment": "Paste the Google Form 'Send > embed <iframe> src' URL (or the plain form link) for each. Empty = a visible placeholder box on the page.",
+    "priestRequest": "",
+    "newsletter": "",
+    "weekendSeva": "",
+    "monthlySeva": "",
+    "kidsSeva": "",
+    "vidyaGurukulam": ""
+  },
+  "payments": {
+    "zelle": {
+      "id": "PLACEHOLDER — Zelle ID goes here",
+      "qr": "assets/img/zelle-qr-placeholder.png",
+      "placeholder": true
+    },
+    "venmo": {
+      "id": "PLACEHOLDER — @Venmo-handle goes here",
+      "qr": "assets/img/venmo-qr-placeholder.png",
+      "placeholder": true
+    },
+    "square": {
+      "url": "https://checkout.square.site/merchant/MLT3CS0BMJ5X7/checkout/O6MYGL76TRO4NUMZ56SGHV6J",
+      "label": "Donate by card (Square)"
+    }
+  },
+  "nonprofit": {
+    "_comment": "Set is501c3 to true and fill in ein once confirmed by the temple; the Donate page then shows the tax-deductible line.",
+    "is501c3": null,
+    "ein": ""
+  },
+  "priest": {
+    "name": "Dr. Sagar Pandya",
+    "title": "Shastriji · Head Priest",
+    "phone": "+1 (682) 333-9416",
+    "website": "https://yourpanditji.org",
+    "photo": "assets/img/priest-sagar-pandya.jpg",
+    "bio": "Shastriji started his spiritual journey from Sola Bhagvat Vidyapith in Sola, Gujarat. There, he obtained preliminary education in Sanskrit literature. To pursue further knowledge, he went to Kashi with the blessings of Shri Krishnashankar Shastriji (Dadaji). He stayed there for 13 years and learned deeply about the Vedas, Vedanta, the Upanishads, Vastu arrangements, Astrology and Shri Vidya. He obtained a Doctorate of Philosophy of Darshan Shastra from the Sampurnanand Sanskrit Vishwa Vidhyalaya in Varanasi, Uttar Pradesh."
+  }
+}

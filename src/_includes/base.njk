@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title and title != "Home" %}{{ title }} · {% endif %}{{ site.name }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <meta name="theme-color" content="#fffcf5">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{% if title and title != "Home" %}{{ title }} · {% endif %}{{ site.name }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ site.url }}/assets/img/hero-2.jpg">
+  <link rel="icon" href="{{ 'assets/img/favicon.ico' | rel }}" sizes="48x48">
+  <link rel="icon" href="{{ 'assets/img/logo-192.png' | rel }}" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="{{ 'assets/img/logo-192.png' | rel }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@400..800&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ 'assets/css/site.css' | rel }}">
+</head>
+<body class="page-{{ page.fileSlug or 'home' }}">
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% include "header.njk" %}
+  <main id="main">
+    {{ content | safe }}
+  </main>
+  {% include "footer.njk" %}
+  <script src="{{ 'assets/js/site.js' | rel }}" defer></script>
+  {%- for s in scripts %}
+  <script src="{{ s | rel }}" defer></script>
+  {%- endfor %}
+</body>
+</html>

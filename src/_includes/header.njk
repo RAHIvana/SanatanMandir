@@ -1,0 +1,37 @@
+{% import "icons.njk" as icons %}
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="{{ 'index.html' | rel }}">
+      <img src="{{ 'assets/img/logo.png' | rel }}" alt="" width="46" height="46">
+      <span>
+        <span class="brand__name">{{ site.name }}</span>
+        <span class="brand__hindi" lang="hi">{{ site.nameHindi }}</span>
+      </span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        {%- for item in nav %}
+        {%- if item.children %}
+        <li class="has-children">
+          <button type="button" aria-expanded="false">{{ item.label }}</button>
+          <ul>
+            {%- for child in item.children %}
+            <li><a href="{{ child.href | rel }}">{{ child.label }}</a></li>
+            {%- endfor %}
+          </ul>
+        </li>
+        {%- elif item.cta %}
+        <li class="nav-cta"><a href="{{ item.href | rel }}">{{ icons.icon("heart") }} {{ item.label }}</a></li>
+        {%- else %}
+        <li><a href="{{ item.href | rel }}">{{ item.label }}</a></li>
+        {%- endif %}
+        {%- endfor %}
+      </ul>
+      <div class="nav-extra">
+        <a href="{{ site.mapsUrl }}" target="_blank" rel="noopener">{{ icons.icon("pin") }} {{ site.address.oneLine }}</a>
+        <a href="{{ site.phone | telHref }}">{{ icons.icon("phone") }} {{ site.phone }}</a>
+      </div>
+    </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
+  </div>
+</header>

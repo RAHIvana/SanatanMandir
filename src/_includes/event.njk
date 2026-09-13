@@ -1,0 +1,82 @@
+---
+layout: base.njk
+---
+{% import "icons.njk" as icons %}
+{#- Each event file controls its own page: the body (Markdown/HTML) is rendered in full below the header.
+    Optional front matter:
+      image:   a flyer/photo shown as a poster beside the details (omit for a text-only page)
+      hero:    "banner" to stretch the image across the top instead of the poster layout
+      buttons: false to hide the calendar/directions buttons -#}
+{%- set hasPoster = image and hero != "banner" %}
+{%- set hasBanner = image and hero == "banner" %}
+
+<article class="event-page">
+  {%- if hasBanner %}
+  <div class="event-banner"><img src="{{ image | rel }}" alt="{{ title }}"></div>
+  {%- endif %}
+
+  <header class="event-head{% if hasBanner %} event-head--after-banner{% endif %}">
+    <div class="container">
+      <p class="event-crumbs"><a href="{{ 'events.html' | rel }}">← All events</a>{% if sample %} <span class="badge">Sample</span>{% endif %}</p>
+      <div class="event-head__row">
+        <div class="event-datebox">
+          <span class="wd">{{ startDate | evWeekdayShort }}</span>
+          <span class="d">{{ startDate | evDay }}</span>
+          <span class="m">{{ startDate | evMonth }}</span>
+        </div>
+        <div>
+          <h1>{{ title }}</h1>
+          <ul class="event-facts">
+            <li>{{ icons.icon("calendar") }}<span>{{ startDate | evLong }}{% if not allDay %} · {{ startDate | evTime }} – {{ endDate | evTime }}{% else %} · All day{% endif %}</span></li>
+            <li>{{ icons.icon("pin") }}<span><a href="{{ location | mapsLink }}" target="_blank" rel="noopener">{{ location }}</a></span></li>
+          </ul>
+          {%- if buttons !== false %}
+          <div class="event-actions">
+            <a class="btn btn--red" href="{{ (page.url | replace('.html', '.ics')) | rel }}" download>{{ icons.icon("calendar") }} Add to calendar</a>
+            <a class="btn btn--outline" href="{{ { data: { startDate: startDate, endDate: endDate, allDay: allDay, title: title, location: location, summary: summary } } | gcalLink }}" target="_blank" rel="noopener">Google Calendar</a>
+            <a class="btn btn--outline" href="{{ location | mapsLink }}" target="_blank" rel="noopener">Directions</a>
+            <a class="btn btn--outline" href="{{ (title + ' at ' + site.name + ' — ' + (startDate | evLong) + '. ' + site.url + page.url) | waShare }}" target="_blank" rel="noopener">{{ icons.icon("whatsapp") }} Share</a>
+          </div>
+          {%- endif %}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="event-layout{% if hasPoster %} event-layout--poster{% endif %}">
+      <div class="event-body prose">
+        {{ content | safe }}
+      </div>
+      <aside class="event-side">
+        {%- if hasPoster %}
+        <figure class="event-poster"><img src="{{ image | rel }}" alt="{{ title }} flyer"></figure>
+        {%- endif %}
+        <div class="card event-glance">
+          <h3>At a glance</h3>
+          <ul class="info-list">
+            <li>{{ icons.icon("calendar") }}<span>{{ startDate | evLong }}</span></li>
+            {%- if not allDay %}<li>{{ icons.icon("clock") }}<span>{{ startDate | evTime }} – {{ endDate | evTime }}</span></li>{% endif %}
+            <li>{{ icons.icon("pin") }}<span>{{ location }}</span></li>
+            <li>{{ icons.icon("phone") }}<span><a href="{{ site.phone | telHref }}">{{ site.phone }}</a></span></li>
+            <li>{{ icons.icon("mail") }}<span><a href="mailto:{{ site.email }}">{{ site.email }}</a></span></li>
+          </ul>
+          <p class="small muted mb-0">Questions or sponsorship: call or email the mandir.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  {%- set others = collections.upcomingEvents | without(page.url) | head(3) %}
+  {%- if others.length %}
+  <section class="section section--paper" style="margin-top:48px">
+    <div class="container">
+      <div class="section-title section-title--left"><h2>More upcoming events</h2><div class="ornament">{{ icons.icon("calendar") }}</div></div>
+      <div class="events-grid">
+        {%- for ev in others %}{% include "event-tile.njk" %}{% endfor %}
+      </div>
+      <div class="section-footer" style="text-align:left"><a class="btn btn--outline" href="{{ 'events.html' | rel }}">All events</a></div>
+    </div>
+  </section>
+  {%- endif %}
+</article>

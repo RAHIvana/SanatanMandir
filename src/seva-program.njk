@@ -1,0 +1,81 @@
+---
+layout: base.njk
+pagination:
+  data: programs
+  size: 1
+  alias: program
+permalink: "{{ program.slug }}.html"
+eleventyComputed:
+  title: "{{ program.title }}"
+  description: "{{ program.title }} at Shri Sanatan Mandir, Hutto TX — what it is, when it happens and how to take part."
+---
+{% import "icons.njk" as icons %}
+{%- set formUrl = site.forms[program.formKey] %}
+
+<section class="page-hero">
+  <div class="container">
+    <span class="hindi" lang="hi">सेवा</span>
+    <h1>{{ program.title }}</h1>
+    <p>Seva &amp; Programs at the mandir</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid grid-2" style="align-items:start">
+    <div>
+      <div class="section-title section-title--left">
+        <h2>About {{ program.title }}</h2>
+        <div class="ornament">{{ icons.icon("people") }}</div>
+      </div>
+      <p class="lede">{{ program.intro }}</p>
+      <div class="placeholder">
+        <p>{{ program.placeholderNote }}</p>
+      </div>
+    </div>
+    <div class="card card--red">
+      <h3>Details</h3>
+      <ul class="hours-list">
+        {%- for row in program.schedule %}
+        <li><b>{{ row.label }}</b><span>{{ row.value }}</span></li>
+        {%- endfor %}
+      </ul>
+      <p class="small" style="margin:14px 0 0;color:#f3e3c0">Questions? Call <a href="{{ site.phone | telHref }}">{{ site.phone }}</a> or email <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper" id="signup">
+  <div class="container">
+    <div class="section-title">
+      <h2>Sign Up</h2>
+      <div class="ornament">{{ icons.icon("star") }}</div>
+      <p>Fill in the form and the {{ program.title }} coordinator will get in touch.</p>
+    </div>
+    <div class="narrow" style="margin:0 auto">
+      {%- if formUrl %}
+      <iframe class="form-embed" src="{{ formUrl }}" title="{{ program.title }} sign-up form" loading="lazy">Loading…</iframe>
+      {%- else %}
+      <div class="placeholder placeholder--tall">
+        <div>
+          <p><b>{{ program.title }} Google Form goes here.</b></p>
+          <p>Paste the form's embed link into <code>src/_data/site.json → forms.{{ program.formKey }}</code>.</p>
+        </div>
+      </div>
+      {%- endif %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-title"><h2>Other ways to serve</h2><div class="ornament">{{ icons.icon("heart") }}</div></div>
+    <div class="grid grid-3">
+      {%- for other in programs %}{% if other.slug != program.slug %}
+      <a class="card" href="{{ (other.slug + '.html') | rel }}" style="text-decoration:none">
+        <h3>{{ other.title }}</h3>
+        <p class="muted mb-0 small">{{ other.intro | truncate(110) }}</p>
+      </a>
+      {%- endif %}{% endfor %}
+    </div>
+  </div>
+</section>

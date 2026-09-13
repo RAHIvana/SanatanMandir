@@ -1,0 +1,14 @@
+{#- Expects `ev` (an event from the collection). Include with: {% set ev = item %}{% include "event-tile.njk" %} -#}
+<a class="event-tile" href="{{ ev.url | rel }}" data-end="{{ ev.data.endDate | evIso }}">
+  <div class="event-tile__media event-tile__media--{{ ev.data.picture.fit }}">
+    <img src="{{ ev.data.picture.src | rel }}" alt="" loading="lazy">
+    <div class="event-tile__date"><span class="d">{{ ev.data.startDate | evDay }}</span><span class="m">{{ ev.data.startDate | evMonth }}</span></div>
+    {%- if ev.data.sample %}<span class="event-tile__sample">Sample</span>{% endif %}
+  </div>
+  <div class="event-tile__body">
+    <h3 class="event-tile__title">{{ ev.data.title }}</h3>
+    <p class="event-tile__meta">{{ ev | evWhen }}</p>
+    {%- if ev.data.summary %}<p class="event-tile__summary">{{ ev.data.summary }}</p>{% endif %}
+    <span class="event-tile__more">Details</span>
+  </div>
+</a>

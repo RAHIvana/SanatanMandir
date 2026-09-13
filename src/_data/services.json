@@ -1,0 +1,56 @@
+{
+  "_comment": "The 26 services listed on the old website, grouped. One-line descriptions were drafted for review — Shastriji should confirm wording. Add 'dakshina' to an item to show a suggested offering.",
+  "groups": [
+    {
+      "title": "Poojas, Havans & Yagyas",
+      "items": [
+        { "name": "Ganesh Poojan", "desc": "Worship of Shri Ganesh to remove obstacles — at the start of a new venture, a new home or any auspicious occasion." },
+        { "name": "Lakshmi Poojan", "desc": "Worship of Maa Lakshmi for prosperity and well-being, especially on Diwali and Sharad Purnima." },
+        { "name": "Satya Narayan Katha", "desc": "Puja and recitation of the Satyanarayan Vrat Katha, often on Purnima or to mark a family milestone." },
+        { "name": "Markandeya Poojan", "desc": "Puja invoking Rishi Markandeya for long life, health and protection." },
+        { "name": "Vahan Poojan", "desc": "Blessing of a new vehicle for safe travel." },
+        { "name": "Ganesh Havan", "desc": "Fire ceremony (havan) dedicated to Shri Ganesh." },
+        { "name": "Lakshmi Havan", "desc": "Fire ceremony dedicated to Maa Lakshmi, seeking prosperity and abundance." },
+        { "name": "Ganesh Yagya", "desc": "An elaborate yagya to Shri Ganesh with mantra japa and ahuti." },
+        { "name": "Navchandi Yagya", "desc": "Yagya to the Divine Mother with recitation of the Durga Saptashati — during Navratri or for a special sankalp." },
+        { "name": "Rudrabhishek", "desc": "Abhishek of the Shiva Linga with chanting of the Rudri (Shri Rudram) — for peace, health and relief from afflictions." },
+        { "name": "Laghurudra", "desc": "Extended Rudrabhishek with 121 recitations of the Rudri, performed by several priests over a day." }
+      ]
+    },
+    {
+      "title": "Shanti & Dosh Nivaran",
+      "items": [
+        { "name": "Kaal Sarp Dosh Shanti", "desc": "Remedial puja for Kaal Sarp yoga in the horoscope." },
+        { "name": "Shani Shanti", "desc": "Puja to pacify Shani (Saturn), especially during Sade Sati or Dhaiya." },
+        { "name": "Vastu Shanti", "desc": "Griha pravesh puja for a new home or workplace, harmonizing the space as per Vastu." },
+        { "name": "Nakshatra Shanti", "desc": "Remedial puja for a birth in certain nakshatras such as Mool or Ashlesha, usually performed for a newborn." },
+        { "name": "Navagraha Shanti", "desc": "Puja to the nine planets to reduce adverse planetary effects." },
+        { "name": "Sarp Bali", "desc": "Remedial ritual for sarpa dosha and related afflictions." }
+      ]
+    },
+    {
+      "title": "Sanskars",
+      "items": [
+        { "name": "Naam Karan Sanskar", "desc": "Naming ceremony of a newborn." },
+        { "name": "Shimant Sanskar", "desc": "Blessing ceremony (godh bharai / seemant) for an expectant mother, usually in the seventh month." },
+        { "name": "Chaul Sanskar", "desc": "First haircut (mundan) ceremony of a child." },
+        { "name": "Yagnopavit (Upanayan)", "desc": "Sacred thread ceremony." }
+      ]
+    },
+    {
+      "title": "Ceremonies",
+      "items": [
+        { "name": "Engagement", "desc": "Sagai / ring ceremony with Vedic blessings." },
+        { "name": "Marriage Ceremony", "desc": "Complete Vedic vivah — Ganesh puja, kanyadaan, mangal phera and saptapadi." }
+      ]
+    },
+    {
+      "title": "Ancestral Rites & Last Rites",
+      "items": [
+        { "name": "Shraddha Karma", "desc": "Tarpan and pind daan in memory of departed ancestors, especially during Pitru Paksha." },
+        { "name": "Narayan Bali", "desc": "Ritual for the peace of departed souls, particularly after an untimely death." },
+        { "name": "Antyeshthi Karma", "desc": "Last rites and the ceremonies that follow." }
+      ]
+    }
+  ]
+}

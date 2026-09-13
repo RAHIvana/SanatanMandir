@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Shri Siddhivinayak",
+    "image": "assets/img/deity-siddhivinayak.png"
+  },
+  {
+    "name": "Shri Hanuman",
+    "image": "assets/img/deity-hanuman.png"
+  },
+  {
+    "name": "Maa Durga",
+    "image": "assets/img/deity-durga.png"
+  },
+  {
+    "name": "Shri Ram Parivar",
+    "image": "assets/img/deity-ram-parivar.png"
+  },
+  {
+    "name": "Maa Ambe",
+    "image": "assets/img/deity-ambe-maa.png"
+  },
+  {
+    "name": "Shri Krishna",
+    "image": "assets/img/deity-placeholder.png",
+    "placeholder": true,
+    "note": "Photo of the Krishna murti needed from the temple"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "weekend-seva",
+    "title": "Weekend Seva",
+    "formKey": "weekendSeva",
+    "intro": "Weekend Seva brings volunteers together on Saturdays and Sundays to serve at the mandir — preparing for aarti and prasad, welcoming devotees, and keeping the temple ready for the community.",
+    "placeholderNote": "The temple has not yet supplied the description, schedule and contact for Weekend Seva. The paragraph above is a draft to be replaced.",
+    "schedule": [
+      { "label": "When", "value": "Saturdays & Sundays — times to be confirmed" },
+      { "label": "Where", "value": "Shri Sanatan Mandir, 281 Lemens Ave, Hutto" },
+      { "label": "Coordinator", "value": "To be confirmed" }
+    ]
+  },
+  {
+    "slug": "monthly-seva",
+    "title": "Monthly Seva",
+    "formKey": "monthlySeva",
+    "intro": "Monthly Seva lets families sponsor and take part in a month's special puja, prasad or maintenance need of the mandir. Sign up for a month that is meaningful to your family.",
+    "placeholderNote": "The temple has not yet supplied the description, list of sevas and contact for Monthly Seva. The paragraph above is a draft to be replaced.",
+    "schedule": [
+      { "label": "When", "value": "One weekend each month — dates to be confirmed" },
+      { "label": "Where", "value": "Shri Sanatan Mandir, 281 Lemens Ave, Hutto" },
+      { "label": "Coordinator", "value": "To be confirmed" }
+    ]
+  },
+  {
+    "slug": "kids-seva",
+    "title": "Kids Seva",
+    "formKey": "kidsSeva",
+    "intro": "Kids Seva gives children a joyful way to take part in temple life — helping with aarti, decorating for festivals, simple service projects and learning the meaning behind each tradition.",
+    "placeholderNote": "The temple has not yet supplied the description, age groups, schedule and contact for Kids Seva. The paragraph above is a draft to be replaced.",
+    "schedule": [
+      { "label": "Ages", "value": "To be confirmed" },
+      { "label": "When", "value": "To be confirmed" },
+      { "label": "Coordinator", "value": "To be confirmed" }
+    ]
+  },
+  {
+    "slug": "vidya-gurukulam",
+    "title": "Vidya Gurukulam",
+    "formKey": "vidyaGurukulam",
+    "intro": "Vidya Gurukulam is the mandir's learning program — classes in Hindu culture, shlokas and prayers, Hindi, and the stories and values of Sanatan Dharma for children and adults.",
+    "placeholderNote": "The temple has not yet supplied the class list, schedule, fees and registration details for Vidya Gurukulam. The paragraph above is a draft to be replaced.",
+    "schedule": [
+      { "label": "Classes", "value": "To be confirmed" },
+      { "label": "When", "value": "To be confirmed" },
+      { "label": "Contact", "value": "To be confirmed" }
+    ]
+  }
+]

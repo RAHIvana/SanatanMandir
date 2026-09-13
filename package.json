@@ -1,0 +1,22 @@
+{
+  "name": "shri-sanatan-mandir-website",
+  "version": "1.0.0",
+  "description": "Website for Shri Sanatan Mandir (Sanatan Mandir of Austin), Hutto TX — static site built with Eleventy and published on GitHub Pages",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "clean": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "sharp": "^0.35.4"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}

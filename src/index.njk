@@ -1,0 +1,142 @@
+---
+layout: base.njk
+title: Home
+permalink: index.html
+---
+{% import "icons.njk" as icons %}
+
+<section class="hero" data-carousel aria-label="Photos of the mandir">
+  {%- for i in [1, 2, 3, 4, 5] %}
+  <div class="slide{% if loop.first %} is-active{% endif %}">
+    <img src="{{ ('assets/img/hero-' + i + '.jpg') | rel }}" srcset="{{ ('assets/img/hero-' + i + '-960.jpg') | rel }} 960w, {{ ('assets/img/hero-' + i + '.jpg') | rel }} 1920w" sizes="100vw" alt="Devotees and deities at Shri Sanatan Mandir"{% if not loop.first %} loading="lazy"{% endif %}>
+  </div>
+  {%- endfor %}
+  <div class="hero__shade"></div>
+  <div class="hero__content">
+    <h1>{{ site.name }}</h1>
+    <p class="hero__motto" lang="hi">{{ site.motto.devanagari }}</p>
+    <p class="hero__meaning">“{{ site.motto.meaning }}”</p>
+    <div class="hero__actions">
+      <a class="btn btn--gold" href="{{ 'events.html' | rel }}">Upcoming events</a>
+      <a class="btn btn--ghost" href="{{ 'donate.html' | rel }}">Donate</a>
+    </div>
+  </div>
+  <div class="hero__social" aria-label="Follow the mandir">
+    <a href="{{ site.social.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">{{ icons.icon("facebook") }}</a>
+    <a href="{{ site.social.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">{{ icons.icon("instagram") }}</a>
+    <a href="{{ site.social.whatsapp }}" target="_blank" rel="noopener" aria-label="WhatsApp group">{{ icons.icon("whatsapp") }}</a>
+  </div>
+  <button class="carousel-prev" type="button" aria-label="Previous photo">&#10094;</button>
+  <button class="carousel-next" type="button" aria-label="Next photo">&#10095;</button>
+  <div class="carousel-dots" role="group" aria-label="Choose photo"></div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Welcome to the Mandir</h2>
+      <div class="ornament">{{ icons.icon("star") }}</div>
+      <p class="lede">{{ site.tagline }}</p>
+    </div>
+    <div class="narrow center" style="margin:0 auto 40px">
+      <p>{{ site.welcome }}</p>
+      <a class="btn btn--outline" href="{{ 'about.html' | rel }}">Learn more about us</a>
+    </div>
+    <div class="deities deities--large" aria-label="Deities at the mandir">
+      {%- for d in deities %}
+      <figure{% if d.placeholder %} class="is-placeholder" title="{{ d.note }}"{% endif %}><img src="{{ d.image | rel }}" alt="{{ d.name }}" loading="lazy" width="454" height="358"><figcaption>{{ d.name }}</figcaption></figure>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Upcoming Events</h2>
+        <p class="muted mb-0">Festivals, pujas and community programs at the mandir.</p>
+      </div>
+      <a class="section-head__link" href="{{ 'events.html' | rel }}">View all events {{ icons.icon("arrow") }}</a>
+    </div>
+    <div class="events-grid events-grid--home">
+      {%- for ev in collections.upcomingEvents | head(3) %}{% include "event-tile.njk" %}{% endfor %}
+      <a class="event-more" href="{{ 'events.html' | rel }}">
+        <span class="event-more__icon">{{ icons.icon("arrow") }}</span>
+        <span class="event-more__label">More events</span>
+        <span class="event-more__sub">{{ collections.upcomingEvents.length }} upcoming</span>
+      </a>
+    </div>
+    <p class="events-empty" data-events-none hidden>No upcoming events posted yet — please check back soon.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Plan Your Visit</h2>
+      <div class="ornament">{{ icons.icon("pin") }}</div>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-tile visit-tile--hours" data-hours='{{ site.hours | jsonify }}'>
+        <span class="open-badge" data-open-badge hidden></span>
+        <div class="visit-tile__icon">{{ icons.icon("clock") }}</div>
+        <h3>Mandir Timings</h3>
+        <ul class="visit-hours">
+          {%- for h in site.hours %}
+          <li><span class="days">{{ h.days }}</span><span class="times">{{ h.times | replace("  ·  ", "<br>") | safe }}</span></li>
+          {%- endfor %}
+        </ul>
+        <p class="visit-tile__note">Festival days may run later — see <a href="{{ 'events.html' | rel }}">events</a>.</p>
+      </div>
+      <div class="visit-tile visit-tile--info">
+        <div class="visit-tile__icon">{{ icons.icon("pin") }}</div>
+        <h3>Visit Us</h3>
+        <p class="visit-address"><b>{{ site.address.line1 }}</b><br>{{ site.address.city }}, {{ site.address.state }} {{ site.address.zip }}</p>
+        <a class="visit-line" href="{{ site.phone | telHref }}">{{ icons.icon("phone") }}<span>{{ site.phone }}</span></a>
+        <a class="visit-line" href="mailto:{{ site.email }}">{{ icons.icon("mail") }}<span>{{ site.email }}</span></a>
+        <a class="visit-line" href="{{ site.social.whatsapp }}" target="_blank" rel="noopener">{{ icons.icon("whatsapp") }}<span>Join the WhatsApp group</span></a>
+        <div class="visit-tile__foot">
+          <a class="btn btn--red" href="{{ site.mapsUrl }}" target="_blank" rel="noopener">Get directions</a>
+          <a class="btn btn--outline" href="{{ 'contact.html' | rel }}">Contact page</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>From the Gallery</h2>
+        <p class="muted mb-0">Moments from recent celebrations at the mandir.</p>
+      </div>
+      <a class="section-head__link" href="{{ 'gallery.html' | rel }}">All albums {{ icons.icon("arrow") }}</a>
+    </div>
+    <div class="album-grid album-grid--fit">
+      {%- for album in albums | head(2) %}
+      <a class="album-tile" href="{{ ('gallery/' + album.slug + '.html') | rel }}">
+        <img src="{{ album.cover | rel }}" alt="" loading="lazy">
+        {%- if album.sample %}<span class="album-tile__badge">Sample</span>{% endif %}
+        <div class="album-tile__body"><h3>{{ album.title }}</h3><p>{{ album.date | longDate }} · {{ album.count }} photos</p></div>
+      </a>
+      {%- endfor %}
+      {%- for ext in external_albums | head(1) %}
+      <a class="album-tile" href="{{ ext.url }}" target="_blank" rel="noopener">
+        <img src="{{ ext.cover | rel }}" alt="" loading="lazy">
+        <span class="album-tile__badge">{{ ext.short }} ↗</span>
+        <div class="album-tile__body"><h3>{{ ext.title }}</h3><p>{{ ext.date | year }} · Professional photos</p></div>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--red">
+  <div class="container cta-band">
+    <h2>Support the Mandir</h2>
+    <p>Your seva and donations keep the mandir open every day for darshan, festivals, priest services, and programs for children and families.</p>
+    <a class="btn btn--gold" href="{{ 'donate.html' | rel }}">{{ icons.icon("heart") }} Donate</a>
+  </div>
+</section>

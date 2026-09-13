@@ -1,0 +1,69 @@
+---
+layout: base.njk
+title: Contact
+permalink: contact.html
+description: Visit or contact Shri Sanatan Mandir — 281 Lemens Ave, Hutto TX 78634. Directions, hours, phone, email, WhatsApp group and newsletter signup.
+---
+{% import "icons.njk" as icons %}
+
+<section class="page-hero">
+  <div class="container">
+    <span class="hindi" lang="hi">संपर्क</span>
+    <h1>Contact &amp; Directions</h1>
+    <p>We'd love to see you at the mandir.</p>
+  </div>
+</section>
+
+<section class="section">
+  {#- 2-column grid: row 1 = the two cards | the map (same height), row 2 = the two small notes #}
+  <div class="container contact-grid">
+    <div class="contact-grid__cards">
+      <div class="card">
+        <h2>Get in touch</h2>
+        <ul class="info-list">
+          <li>{{ icons.icon("pin") }}<span><b>{{ site.address.line1 }}</b><br>{{ site.address.city }}, {{ site.address.state }} {{ site.address.zip }}<br><a href="{{ site.mapsUrl }}" target="_blank" rel="noopener">Open in Google Maps</a></span></li>
+          <li>{{ icons.icon("phone") }}<span><a href="{{ site.phone | telHref }}">{{ site.phone }}</a></span></li>
+          <li>{{ icons.icon("mail") }}<span><a href="mailto:{{ site.email }}">{{ site.email }}</a></span></li>
+          <li>{{ icons.icon("clock") }}<span>{% for h in site.hours %}<b>{{ h.days }}:</b> {{ h.times }}{% if not loop.last %}<br>{% endif %}{% endfor %}</span></li>
+        </ul>
+      </div>
+      <div class="card card--red">
+        <h3>Follow the mandir</h3>
+        <p>Festival announcements, photos and reminders.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn--gold btn--sm" href="{{ site.social.whatsapp }}" target="_blank" rel="noopener">{{ icons.icon("whatsapp") }} WhatsApp group</a>
+          <a class="btn btn--ghost btn--sm" href="{{ site.social.facebook }}" target="_blank" rel="noopener">{{ icons.icon("facebook") }} Facebook</a>
+          <a class="btn btn--ghost btn--sm" href="{{ site.social.instagram }}" target="_blank" rel="noopener">{{ icons.icon("instagram") }} Instagram</a>
+        </div>
+      </div>
+    </div>
+    <a class="map-static contact-grid__map" href="{{ site.mapsUrl }}" target="_blank" rel="noopener" aria-label="Open the mandir's location in Google Maps">
+      <img src="{{ 'assets/img/map-static.jpg' | rel }}" srcset="{{ 'assets/img/map-static-600.jpg' | rel }} 600w, {{ 'assets/img/map-static.jpg' | rel }} 1200w" sizes="(max-width: 700px) 100vw, 50vw" width="960" height="1200" alt="Map showing Shri Sanatan Mandir at 281 Lemens Ave, Hutto — west of the TX-130 toll road, south of University Boulevard" loading="lazy">
+      <span class="map-static__cta">{{ icons.icon("external") }} Open in Google Maps</span>
+    </a>
+    <p class="small muted contact-grid__note contact-grid__note--left">Looking for the people who run the mandir? See the <a href="{{ 'about.html#committee' | rel }}">Board &amp; Executive Committee</a>.</p>
+    <p class="small muted center contact-grid__note contact-grid__note--right">Free parking on site · about 25 minutes north-east of downtown Austin.</p>
+  </div>
+</section>
+
+<section class="section section--paper" id="newsletter">
+  <div class="container">
+    <div class="section-title">
+      <h2>Newsletter</h2>
+      <div class="ornament">{{ icons.icon("mail") }}</div>
+      <p>Sign up to receive festival schedules and mandir news by email.</p>
+    </div>
+    <div class="narrow" style="margin:0 auto">
+      {%- if site.forms.newsletter %}
+      <iframe class="form-embed form-embed--short" src="{{ site.forms.newsletter }}" title="Newsletter signup" loading="lazy">Loading…</iframe>
+      {%- else %}
+      <div class="placeholder placeholder--tall" style="min-height:220px">
+        <div>
+          <p><b>Newsletter signup form goes here.</b></p>
+          <p>Create a Google Form with Name · Email · (optional) Phone for WhatsApp, and paste its embed link into <code>src/_data/site.json → forms.newsletter</code>. Responses collect in a Google Sheet the mandir owns.</p>
+        </div>
+      </div>
+      {%- endif %}
+    </div>
+  </div>
+</section>

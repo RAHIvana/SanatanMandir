@@ -1,0 +1,77 @@
+---
+layout: base.njk
+title: Priest Services
+permalink: priest-services.html
+description: Poojas, havans, sanskars and ceremonies performed by Dr. Sagar Pandya (Shastriji) at Shri Sanatan Mandir or at your home — and how to request a service.
+---
+{% import "icons.njk" as icons %}
+
+<section class="page-hero">
+  <div class="container">
+    <span class="hindi" lang="hi">पूजा एवं संस्कार सेवाएँ</span>
+    <h1>Priest Services</h1>
+    <p>Poojas, havans, sanskars and ceremonies — at the mandir or at your home.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="profile">
+      <img src="{{ site.priest.photo | rel }}" alt="{{ site.priest.name }} performing a puja">
+      <div>
+        <h2>{{ site.priest.name }}</h2>
+        <div class="role">{{ site.priest.title }}</div>
+        <p>{{ site.priest.bio }}</p>
+        <ul class="info-list">
+          <li>{{ icons.icon("phone") }}<span><a href="{{ site.priest.phone | telHref }}">{{ site.priest.phone }}</a></span></li>
+          <li>{{ icons.icon("external") }}<span><a href="{{ site.priest.website }}" target="_blank" rel="noopener">yourpanditji.org</a></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper">
+  <div class="container">
+    <div class="section-title">
+      <h2>Services Offered</h2>
+      <div class="ornament">{{ icons.icon("flame") }}</div>
+      <p>Tap “Request a service” below to book, or call Shastriji directly. Services can be performed at the mandir or at your home.</p>
+    </div>
+    {%- for group in services.groups %}
+    <div class="service-group">
+      <h3>{{ group.title }}</h3>
+      <ul class="service-list">
+        {%- for s in group.items %}
+        <li><b>{{ s.name }}</b><span>{{ s.desc }}</span>{% if s.dakshina %}<em class="dakshina">Suggested dakshina: {{ s.dakshina }}</em>{% endif %}</li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endfor %}
+    <div class="placeholder">
+      <p>The one-line descriptions above were drafted from the service names on the old website. Shastriji should review the wording, add or remove services, and say whether suggested dakshina amounts should be shown.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="request">
+  <div class="container">
+    <div class="section-title">
+      <h2>Request a Service</h2>
+      <div class="ornament">{{ icons.icon("calendar") }}</div>
+      <p>Tell us which service you need and your preferred date, and the mandir will confirm with you. You can also call <a href="{{ site.priest.phone | telHref }}">{{ site.priest.phone }}</a> or email <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+    </div>
+    <div class="narrow" style="margin:0 auto">
+      {%- if site.forms.priestRequest %}
+      <iframe class="form-embed" src="{{ site.forms.priestRequest }}" title="Request a priest service" loading="lazy">Loading…</iframe>
+      {%- else %}
+      <div class="placeholder placeholder--tall">
+        <div>
+          <p><b>Service request form goes here.</b></p>
+          <p>Create a Google Form with: Your name · Phone · Email · Service (dropdown of the list above) · Preferred date &amp; time · At the mandir or at home (address) · Notes. Paste its embed link into <code>src/_data/site.json → forms.priestRequest</code>.</p>
+        </div>
+      </div>
+      {%- endif %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,103 @@
+---
+layout: base.njk
+title: About
+permalink: about.html
+description: About Shri Sanatan Mandir in Hutto, Texas — our motto, mission and vision, the deities at the mandir, our story, and the board and executive committee.
+---
+{% import "icons.njk" as icons %}
+
+<section class="page-hero">
+  <div class="container">
+    <span class="hindi" lang="hi">हमारे बारे में</span>
+    <h1>About the Mandir</h1>
+    <p>{{ site.tagline }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container narrow">
+    <div class="motto">
+      <span class="hindi" lang="hi">{{ site.motto.devanagari }}</span>
+      <div class="translit">{{ site.motto.transliteration }}</div>
+      <p class="meaning">“{{ site.motto.meaning }}”</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper">
+  <div class="container grid grid-2">
+    <div class="card">
+      <div class="card-icon">{{ icons.icon("flame") }}</div>
+      <h2>Our Mission</h2>
+      <p class="mb-0">{{ site.mission }}</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">{{ icons.icon("star") }}</div>
+      <h2>Our Vision</h2>
+      <p class="mb-0">{{ site.vision }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Deities at the Mandir</h2>
+      <div class="ornament">{{ icons.icon("star") }}</div>
+    </div>
+    <div class="deities">
+      {%- for d in deities %}
+      <figure><img src="{{ d.image | rel }}" alt="{{ d.name }}" loading="lazy" width="170" height="134"><figcaption>{{ d.name }}</figcaption></figure>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper">
+  <div class="container grid grid-2" style="align-items:start">
+    <div>
+      <div class="section-title section-title--left">
+        <h2>Our Story</h2>
+        <div class="ornament">{{ icons.icon("star") }}</div>
+      </div>
+      <ol class="timeline">
+        <li><b>2023 — The mandir opens</b> Shree Sanatan Mandir of Austin opens its doors, bringing the Hindu community of Central Texas together for daily darshan and festivals.</li>
+        <li><b>2023 — First Garba</b> The mandir's first Navratri Garba nights.</li>
+        <li><b>January 2024 — Ram Parivar Pran Pratishtha</b> Consecration of Shri Ram Parivar at the mandir, celebrated alongside Lohri.</li>
+        <li><b>Today — 281 Lemens Ave, Hutto</b> The mandir moved to its current home in Hutto and continues to grow with seva programs and Vidya Gurukulam.</li>
+      </ol>
+      <div class="placeholder">
+        <p>Dates and wording of the story above are drawn from the old website and photo album names. The temple should confirm the timeline (opening date, Pran Pratishtha date, the move to Hutto) and add anything missing.</p>
+      </div>
+    </div>
+    <div>
+      <img class="story-img" src="{{ 'assets/img/hero-2.jpg' | rel }}" alt="The main altar at Shri Sanatan Mandir during a celebration" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="committee">
+  <div class="container">
+    <div class="section-title">
+      <h2>Board &amp; Executive Committee</h2>
+      <div class="ornament">{{ icons.icon("people") }}</div>
+      <p>The volunteers who guide and run the mandir.</p>
+    </div>
+    {%- for b in committee.board %}
+    <div class="card board-tile">
+      <img src="{{ b.photo | rel }}" alt="{{ b.name }}">
+      <div>
+        <h3>{{ b.name }}</h3>
+        <div class="role">{{ b.role }}</div>
+        <p class="phone">{{ icons.icon("phone") }} <a href="{{ b.phone | telHref }}">{{ b.phone }}</a></p>
+      </div>
+    </div>
+    {%- endfor %}
+    <h3 class="center" style="margin-bottom:16px">Executive Committee Members</h3>
+    <div class="committee-grid">
+      {%- for m in committee.members %}
+      <div class="member">{{ m.name }}{% if m.role %}<small>{{ m.role }}</small>{% endif %}</div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

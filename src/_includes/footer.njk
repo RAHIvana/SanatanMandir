@@ -1,0 +1,45 @@
+{% import "icons.njk" as icons %}
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="{{ 'assets/img/logo.png' | rel }}" alt="" width="60" height="60">
+          <div>
+            <div class="display">{{ site.name }}</div>
+            <div class="hindi" lang="hi">{{ site.nameHindi }}</div>
+          </div>
+        </div>
+        <p class="small">{{ site.tagline }}. A non-profit, charitable organization offering religious, educational, cultural and community services in Central Texas.</p>
+        <div class="footer-social">
+          <a href="{{ site.social.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">{{ icons.icon("facebook") }}</a>
+          <a href="{{ site.social.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">{{ icons.icon("instagram") }}</a>
+          <a href="{{ site.social.whatsapp }}" target="_blank" rel="noopener" aria-label="WhatsApp group">{{ icons.icon("whatsapp") }}</a>
+        </div>
+      </div>
+      <div>
+        <h3>Quick links</h3>
+        <ul class="footer-links">
+          {%- for item in nav %}
+          {%- if item.children %}
+          {%- for child in item.children %}<li><a href="{{ child.href | rel }}">{{ child.label }}</a></li>{% endfor %}
+          {%- else %}<li><a href="{{ item.href | rel }}">{{ item.label }}</a></li>{% endif %}
+          {%- endfor %}
+        </ul>
+      </div>
+      <div>
+        <h3>Visit us</h3>
+        <ul class="info-list">
+          <li>{{ icons.icon("pin") }}<span><a href="{{ site.mapsUrl }}" target="_blank" rel="noopener">{{ site.address.line1 }}<br>{{ site.address.city }}, {{ site.address.state }} {{ site.address.zip }}</a></span></li>
+          <li>{{ icons.icon("phone") }}<span><a href="{{ site.phone | telHref }}">{{ site.phone }}</a></span></li>
+          <li>{{ icons.icon("mail") }}<span><a href="mailto:{{ site.email }}">{{ site.email }}</a></span></li>
+          <li>{{ icons.icon("clock") }}<span>{% for h in site.hours %}{{ h.days }}: {{ h.times }}{% if not loop.last %}<br>{% endif %}{% endfor %}</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>{{ "now" | year }}</span> {{ site.name }}. All rights reserved.</span>
+      <span class="hindi" lang="hi">{{ site.motto.devanagari }}</span>
+    </div>
+  </div>
+</footer>
